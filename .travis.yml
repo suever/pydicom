@@ -9,8 +9,12 @@ python:
 install:
     - cd $TRAVIS_BUILD_DIR/source
     - pip install numpy
+    - pip install coveralls
     - python setup.py install
     - cd $TRAVIS_BUILD_DIR 
 
 script:
-    - python ./source/dicom/test/run_tests.py
+    - coverage run -m dicom.test.run_tests
+
+after_success:
+    - coveralls
