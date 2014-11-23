@@ -1,5 +1,5 @@
 # .gitignore file
- 
+
 # Backup files
 *~
 
@@ -19,20 +19,19 @@
 *.pyo
 
 # Build/dist files
-source/dist/*
-source/build/*
-source/pydicom.egg-info/*
-source/distribute*.egg
-source/distribute*.tar.gz
-py3source
-source/.tox/*
+dist/*
+build/*
+pydicom.egg-info/*
+distribute*.egg
+distribute*.tar.gz
+.tox/*
 
 # Docs build
 docs/_build/*
 
 # coverage.py files
-source/dicom/test/.coverage
-source/dicom/test/htmlcov
+dicom/test/.coverage
+dicom/test/htmlcov
 
 # PyCharm IDE files
 *.idea*
