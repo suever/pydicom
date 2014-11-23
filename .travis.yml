@@ -6,8 +6,12 @@ python:
     - 3.3
     - 3.4
 
+env:
+    - DEPS=true
+    - DEPS=false
+
 install:
-    - pip install numpy
+    - if [[ $DEPS == true ]]; then pip install numpy; fi
     - pip install coveralls
     - pip install coverage
     - python setup.py install
