@@ -7,11 +7,10 @@ python:
     - 3.4
 
 install:
-    - cd $TRAVIS_BUILD_DIR/source
     - pip install numpy
     - pip install coveralls
+    - pip install coverage
     - python setup.py install
-    - cd $TRAVIS_BUILD_DIR 
 
 script:
     - coverage run -m dicom.test.run_tests

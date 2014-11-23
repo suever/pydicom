@@ -9,6 +9,7 @@ import os
 import os.path
 import sys
 import unittest
+import glob
 
 # Get the directory test_dir where the test scripts are
 from pkg_resources import Requirement, resource_filename
@@ -18,12 +19,9 @@ test_dir = resource_filename(Requirement.parse("pydicom"), "dicom/test")
 class MyTestLoader(object):
     def loadTestsFromNames(self, *args):
         # Simplest to change to directory where test_xxx.py files are
-        save_dir = os.getcwd()
-        if test_dir:
-            os.chdir(test_dir)
-        filenames = os.listdir(".")
-        module_names = [f[:-3] for f in filenames
-                        if f.startswith("test") and f.endswith(".py")]
+        module_names = glob.glob(os.path.join(test_dir, 'test*.py'))
+        module_names = [os.path.basename(name) for name in module_names]
+        module_names = [os.path.splitext(name)[0] for name in module_names]
 
         # Load all the tests
         suite = unittest.TestSuite()
