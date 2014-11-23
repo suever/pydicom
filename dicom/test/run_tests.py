@@ -30,7 +30,6 @@ class MyTestLoader(object):
             test = unittest.defaultTestLoader.loadTestsFromName(
                 module_dotted_name)
             suite.addTest(test)
-        os.chdir(save_dir)
         return suite
 
 if __name__ == "__main__":
