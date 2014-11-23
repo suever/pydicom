@@ -6,9 +6,6 @@ except:
     use_setuptools()
     from setuptools import setup, find_packages
 
-import os
-import os.path
-
 import sys
 
 extra = {}
