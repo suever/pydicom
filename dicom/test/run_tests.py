@@ -45,9 +45,4 @@ if __name__ == "__main__":
     runner = unittest.TextTestRunner(verbosity=verbosity)
 
     # Switch directories to test DICOM files, used by many of the tests
-    save_dir = os.getcwd()
-    testfiles_dir = resource_filename(Requirement.parse("pydicom"),
-                                      "dicom/testfiles")
-    os.chdir(testfiles_dir)
     runner.run(suite)
-    os.chdir(save_dir)
